@@ -1,0 +1,20 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   remote_user: ansible
+   tasks:
+    - name: my first yaml playbook for installing httpd
+      yum:
+       name: httpd
+       state: present
+    - name: Restarting APache service
+      service:
+       name: httpd
+       state: started
+    - name: create index.html
+      shell: "echo Welcomee to my page >> /var/www/html/index.html"
+    - name: enabling fire wall
+      firewalld:      
+       port: 80/tcp
+       state: enabled 
+ 

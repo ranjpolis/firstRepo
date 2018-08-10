@@ -1,0 +1,14 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   tasks:
+   - name: confrim user
+     user:
+       name: ganesh
+       state: absent
+     notify: test_one
+   handlers:
+   - name: test_one
+     service:
+       name: httpd
+       state: stopped

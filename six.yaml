@@ -1,0 +1,9 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   connection: ssh
+   vars:
+    motd_value: "{{ lookup('file' , '/tmp/abc.txt') }}"
+   tasks:
+    - debug:
+       msg: "motd value is {{ motd_value }}"

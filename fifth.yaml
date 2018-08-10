@@ -1,0 +1,11 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   tasks:
+     - name: dowload in time
+       get_url:
+        url: http://www.pdf995.com/samples/pdf.pdf
+#https://speed.hetzner.de/10GB.bin
+        dest: /tmp
+       async: 20 
+       pool: 5

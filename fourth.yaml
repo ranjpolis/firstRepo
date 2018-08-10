@@ -1,0 +1,23 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   vars:
+    web_package: http
+    pakage2: telnet
+    pakage3: mariadb
+   tasks:
+    - block:
+      - name: installing Apache on nodes
+        yum: 
+          name: "{{ web_package }}"
+          state: latest
+      rescue:
+       - name: installing Telent 
+         yum:
+          name: "{{ pakage2 }}"
+          state: latest 
+      always:
+       - name: running always
+         yum:
+          name: "{{ pakage3 }}"
+          state: latest

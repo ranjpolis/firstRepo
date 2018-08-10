@@ -1,0 +1,16 @@
+---
+ - hosts: node2.chennai.com
+   become: yes
+   vars:
+    web_package: http
+    pakage2: telnet
+   tasks:
+    - name: installing Apache on nodes
+      yum: 
+        name: "{{ web_package }}"
+        state: latest
+      ignore_errors: yes
+    - name: installing Telent 
+      yum:
+       name: "{{ pakage2 }}"
+       state: latest 

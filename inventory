@@ -1,0 +1,11 @@
+[local]
+localhost
+
+[boa]
+node1.chennai.com
+node2.chennai.com
+node3.chennai.com
+
+[client]
+192.168.74.131
+
