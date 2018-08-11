@@ -1,7 +1,5 @@
 ---
  - hosts: all
-   become: yes
-   remote_user: ansible
    tasks:
     - name: my first yaml playbook for installing httpd
       yum:
